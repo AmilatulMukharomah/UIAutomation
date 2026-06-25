@@ -23,4 +23,14 @@ describe('Test Login SauceDemo', function() {
         assert.strictEqual(title, 'Swag Labs');
     });
 
+    it('2. Login with valid credentials', async function() {
+        let inputUsername = await driver.findElement(By.css('[data-test="username"]'));
+        let inputPassword = await driver.findElement(By.xpath('//*[@data-test="password"]'));
+        let buttonLogin = await driver.findElement(By.className('submit-button btn_action'));
+        
+        await inputUsername.sendKeys('standard_user');
+        await inputPassword.sendKeys('secret_sauce');
+        await buttonLogin.click();
+    });
+
 });
