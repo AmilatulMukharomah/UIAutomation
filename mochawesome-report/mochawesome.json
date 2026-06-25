@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-25T04:03:53.592Z",
+    "end": "2026-06-25T04:03:59.583Z",
+    "duration": 5991,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c12d3f30-aec8-49fa-bd33-1eb808d27b7c",
+      "title": "",
+      "fullFile": "C:\\Users\\ASUS\\Documents\\QA\\UI AUTOMATION\\tests\\sesi9\\test_sesi9.js",
+      "file": "\\tests\\sesi9\\test_sesi9.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+          "title": "Test Login SauceDemo",
+          "fullFile": "C:\\Users\\ASUS\\Documents\\QA\\UI AUTOMATION\\tests\\sesi9\\test_sesi9.js",
+          "file": "\\tests\\sesi9\\test_sesi9.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Test Login SauceDemo\"",
+              "fullTitle": "Test Login SauceDemo \"before all\" hook in \"Test Login SauceDemo\"",
+              "timedOut": false,
+              "duration": 810,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "daf1a303-eed8-46fc-9049-713511321e55",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Test Login SauceDemo\"",
+              "fullTitle": "Test Login SauceDemo \"after all\" hook in \"Test Login SauceDemo\"",
+              "timedOut": false,
+              "duration": 2078,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.sleep(2000); // wait before the browser closes completely\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "7c95a545-ef77-4f7d-b688-fd0b6fd418e7",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "1. Visit SauceDemo and verify title",
+              "fullTitle": "Test Login SauceDemo 1. Visit SauceDemo and verify title",
+              "timedOut": false,
+              "duration": 1668,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nconst title = await driver.getTitle();\n\n// Assert that the title is correct\nassert.strictEqual(title, 'Swag Labs');",
+              "err": {},
+              "uuid": "4b76cc3c-affa-4b27-9053-cd6af12ad8ae",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. Login with valid credentials",
+              "fullTitle": "Test Login SauceDemo 2. Login with valid credentials",
+              "timedOut": false,
+              "duration": 230,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'));\nlet inputPassword = await driver.findElement(By.xpath('//*[@data-test=\"password\"]'));\nlet buttonLogin = await driver.findElement(By.className('submit-button btn_action'));\n\nawait inputUsername.sendKeys('standard_user');\nawait inputPassword.sendKeys('secret_sauce');\nawait buttonLogin.click();",
+              "err": {},
+              "uuid": "f137a631-0c62-4128-863b-fa536d8dbc57",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Display main page and verify cart button",
+              "fullTitle": "Test Login SauceDemo 3. Display main page and verify cart button",
+              "timedOut": false,
+              "duration": 30,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// wait element appear\nlet buttonCart = await driver.wait(\n    until.elementLocated(By.xpath('//*[@data-test=\"shopping-cart-link\"]')), \n    10000\n);\nawait driver.wait(until.elementIsVisible(buttonCart), 5000, 'Button Cart is not visible');\n// Assert that the button cart is displayed\nlet isButtonCartDisplayed = await buttonCart.isDisplayed();\nassert.strictEqual(isButtonCartDisplayed, true, 'Button Cart is not displayed');",
+              "err": {},
+              "uuid": "0519c92f-c07b-498e-bcef-58a850ff70fb",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4. Display and test sorting dropdown",
+              "fullTitle": "Test Login SauceDemo 4. Display and test sorting dropdown",
+              "timedOut": false,
+              "duration": 1167,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let dropdown = await driver.findElement(By.xpath('//*[@data-test=\"product-sort-container\"]'));\n\n// click dropdown and select Z to A\nawait dropdown.click();\nawait driver.findElement(By.xpath('//option[text()=\"Name (Z to A)\"]')).click();\nawait driver.sleep(1000); // Jeda agar transisi terlihat\n// select A to Z\nawait driver.findElement(By.xpath('//option[text()=\"Name (A to Z)\"]')).click();\n// Assert dropdown A to Z\nlet selectedOption = await driver.findElement(By.xpath('//option[text()=\"Name (A to Z)\"]'));\nlet selectedText = await selectedOption.getText();\nassert.strictEqual(selectedText, 'Name (A to Z)', 'Dropdown selection is not correct');",
+              "err": {},
+              "uuid": "a7b8c76c-57fa-4a66-965c-ecdd84f9b31b",
+              "parentUUID": "db17a869-3d32-41cb-aab0-21311e8a5b53",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4b76cc3c-affa-4b27-9053-cd6af12ad8ae",
+            "f137a631-0c62-4128-863b-fa536d8dbc57",
+            "0519c92f-c07b-498e-bcef-58a850ff70fb",
+            "a7b8c76c-57fa-4a66-965c-ecdd84f9b31b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3095,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
