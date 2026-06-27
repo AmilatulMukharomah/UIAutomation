@@ -1,11 +1,15 @@
 const { Builder, By, until } = require('selenium-webdriver');
 const assert = require('assert');
+const chrome = require('selenium-webdriver/chrome');
 
 describe('Test Login SauceDemo', function() {
     let driver;
 
     before(async function() {
-        driver = await new Builder().forBrowser('chrome').build();
+        options = new chrome.Options();
+        options.addArguments('--headless'); // Run in headless mode
+
+        driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     });
 
     after(async function() {
